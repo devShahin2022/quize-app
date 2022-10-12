@@ -1,6 +1,6 @@
 import { EyeIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { json, useLoaderData } from 'react-router-dom';
 import './QuizePage.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
