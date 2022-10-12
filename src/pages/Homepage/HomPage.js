@@ -6,7 +6,6 @@ import './HomePage.css';
 
 const HomPage = () => {
     const data = useLoaderData();
-    console.log(data.data);
     let items = data.data;
     return (
         <div>
@@ -15,7 +14,7 @@ const HomPage = () => {
             <h1 id='scroll-quize' className='my-4 mb-5 text-center'>Select quize</h1>
             <div className='row'>
                 {
-                    items.map(item => <QuizeCard data={item}></QuizeCard> )
+                    items.map((item, idx) => <QuizeCard key={idx} data={item}></QuizeCard> )
                 }
             </div>
            </div>

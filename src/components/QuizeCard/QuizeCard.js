@@ -5,7 +5,6 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 
 const QuizeCard = ({data}) => {
-    console.log(data);
     return (    
         
         <div className='col-6 col-xl-3 col-lg-3 col-md-4 mt-3'>
