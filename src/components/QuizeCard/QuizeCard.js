@@ -11,10 +11,10 @@ const QuizeCard = ({data}) => {
             <div className='border'>
                 <img style={{"width":"100%","background-color": "#25525b"}} src={data.logo} alt="" />
                 <div className='d-flex w-100 my-2 justify-content-between p-2'>
-                    <div className='card-title'><h5>{data.name}</h5></div>
+                    <div className='card-title'><h5 className='card-ttle'>{data.name}</h5></div>
                     <Link to={`/topics/${data.id}`} ><div className='cardIcon rounded-circle bg-info'><ArrowRightIcon className="text-white icon-width"/></div></Link>
                 </div>
-            </div>
+            </div> 
         </div>
     );
 };
