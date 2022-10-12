@@ -2,6 +2,8 @@ import { EyeIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './QuizePage.css';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const QuizePage = () => {
     const data = useLoaderData();
@@ -44,17 +46,50 @@ const EachQuize = ({data, idx}) => {
         // console.log("index mcq : ",idx);
         // console.log("selected mcq : ",id);
         if(options[id] === data.correctAnswer){
-            console.log("correct answer : ",options[id], data.correctAnswer);
+            // console.log("correct answer : ",options[id], data.correctAnswer);
+            toastMsg("success");
         }else{
             console.log("wrong answer : ", options[id], data.correctAnswer);
+            toastMsg("error");
         }
 
     }
+
+// success toast message
+const toastMsg = (sts)=> {
+    let txt = '';
+    if(sts === "error"){
+        txt = "Oops! your answer wrong"
+    }else{
+        txt = "Wow! your answer correct"
+    }
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: sts,
+        title: txt
+      });
+}
+// show correct answer in modal box
+const showAnswer = () => {
+    Swal.fire(data.correctAnswer);
+}
+
     return (
         <div className='quize-wrapper mt-3 mb-5'>
         <div className='d-flex justify-content-between'>
             <h4 style={{"width":"90%"}}>{idx + 1}. { htmlObject.outerText }</h4>
-            <EyeIcon className='text-dark me-3' style={{"width":"2.2rem","cursor":"pointer"}}></EyeIcon>
+            <EyeIcon onClick={()=> showAnswer()} className='text-dark me-3' style={{"width":"2.2rem","cursor":"pointer"}}></EyeIcon>
         </div>
         <div className='row'>
             {
@@ -69,7 +104,7 @@ const EachQuize = ({data, idx}) => {
 const Data = ({data,index,callBackselectOpt}) => {
     // console.log(index);
     return(
-        <div className='col-6'>
+        <div className='col-6 mt-1'>
             <div className='each-option d-flex align-items-center'>
                 <div><input onClick={()=> callBackselectOpt(index)}  name="option" id="" type="radio" /></div>
                 <label for="" className='lead ms-3'>{data}</label>
