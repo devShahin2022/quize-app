@@ -9,3 +9,7 @@
     transform: scale(1.6);
     margin-left: 1rem;
 }
+.bgAlert{
+    background-color: rgb(255, 218, 218);
+    color: rgb(216, 72, 72);
+}

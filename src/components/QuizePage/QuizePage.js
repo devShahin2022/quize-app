@@ -6,7 +6,7 @@ const QuizePage = () => {
     return (
     <div>
         <div className='container mb-5 pb-5 mt-3'>
-           <p className='bg-danger'>Alert : We will count your first click for wrong or correct answer! be careful </p> 
+           <p className='bgAlert'>Alert : We will count your first click for wrong or correct answer! be careful </p> 
             <h1 className='mb-4 text-start mt-4'>Start Quize with React</h1>
             <div className='row d-flex'>
                 <div className='col-md-8 col-lg-8'>
