@@ -1,4 +1,4 @@
-My simple quize app
+###My simple quize app
 
 This project i will use react core concept. Here students or visitor justify there technological khowledge 
 ## What technologies i used here
