@@ -17,3 +17,18 @@
 .cardIcon:hover .icon-width{
     color:rgb(222, 243, 252) !important;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .card-ttle{
+      font-size: 12px !important;
+    }
+    .cardIcon .icon-width{
+        width:.6rem !important;
+        width: 1.2rem !important;
+        height: 1.2rem !important;
+        border-radius: 50%;
+        padding: .2rem !important;
+    }
+  }
+  
