@@ -2,3 +2,9 @@
     width:2.5rem;
     height: auto;
 }
+.active-link{
+    text-decoration: underline;
+}
+.inactive{
+    text-decoration:none;
+}

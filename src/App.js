@@ -1,17 +1,47 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbarheader from './components/Navbar/Navbarheader';
-import Banner from './components/Banner/Banner';
-import QuizeCard from './components/QuizeCard/QuizeCard';
-import Footer from './components/Footer/Footer';
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AppLayout from './layouts/AppLayout';
+import HomPage from './pages/Homepage/HomPage';
+import Blog from './pages/BlogPage/Blog';
+import Statistics from './pages/Statistics/Statistics';
+import QuizePage from './components/QuizePage/QuizePage';
 function App() {
+  const router = createBrowserRouter([
+    {
+      path : '/',
+      element : <AppLayout></AppLayout>,
+      children : [
+        {
+          path : "/",
+          element : <HomPage></HomPage>
+        },
+        {
+          path : "/blog",
+          element : <Blog></Blog>
+        },
+        {
+          path : "/statistics",
+          element : <Statistics></Statistics>
+        },
+        {
+          path : "topics/:id",
+          element : <QuizePage></QuizePage>
+        }
+      ]
+    },
+    {
+      path : "*",
+      element : <h1>Page not found !!! 404 </h1>
+    }
+  ]);
+
+
+
+
   return (
     <div className="App">
-      <Navbarheader></Navbarheader>
-      <Banner></Banner>
-      <QuizeCard></QuizeCard>
-      <Footer></Footer>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

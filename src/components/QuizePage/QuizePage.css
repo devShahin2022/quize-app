@@ -1,0 +1,11 @@
+.quize-wrapper{
+    box-shadow: 1px 5px 20px rgb(211, 211, 211);
+}
+.each-option{
+    background-color: rgba(216, 244, 255, 0.507) !important;
+    padding: 1rem .2rem !important;
+}
+.each-option input[type='radio']{
+    transform: scale(1.6);
+    margin-left: 1rem;
+}

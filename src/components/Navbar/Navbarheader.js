@@ -4,24 +4,41 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../logo.png';
+import { NavLink } from 'react-router-dom';
 
 const Navbarheader = () => {
+  let activeStyle = {
+    textDecoration: "underline",
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="info" variant="light">
     <Container>
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
       <img className='nav-brand' src={logo} alt=''/>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className='ms-auto'>
-          <Nav.Link href="#deets">Home</Nav.Link>
-          <Nav.Link  href="#memes">
+          <NavLink 
+                style={({ isActive }) =>
+                isActive ? activeStyle : undefined
+              }
+          
+          className="nav-link" to="/">Topics</NavLink>
+          <NavLink 
+              style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          className="nav-link"  to="/blog">
             Blog
-          </Nav.Link>
-          <Nav.Link  href="#memes">
+          </NavLink>
+          <NavLink
+              style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          className="nav-link"  to="/statistics">
             Statistics
-          </Nav.Link>
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Container>
