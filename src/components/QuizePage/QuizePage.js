@@ -12,7 +12,7 @@ const QuizePage = () => {
     <div>
         <div className='container mb-5 pb-5 mt-3'>
            <p className='bgAlert'>Alert : We will count your first click for wrong or correct answer! be careful </p> 
-            <h1 className='mb-4 text-start mt-4'>Start Quize with <span className='text-danger'>{data.data.name}</span></h1>
+            <h1 className='title mb-4 text-start mt-4'>Start Quize with <span className='text-danger'>{data.data.name}</span></h1>
             <div className='row d-flex'>
                 <div className='col-md-8 col-lg-8'>
                     {/* each quize */}
@@ -21,7 +21,7 @@ const QuizePage = () => {
                     }
                 </div>
                 <div className='col-md-4 col-lg-4 p-2 bg-light'>
-                    <h3 className='py-2 bg-info text-center'>Your results </h3>
+                    <h3 className='py-2 bg-info text-center'>Your results (Optional) </h3>
                     <p className='lead'>Wrong answer : </p>
                     <p className='lead'>Correct answer : </p>
                 </div>
@@ -35,16 +35,11 @@ const QuizePage = () => {
 
 // show each quize
 const EachQuize = ({data, idx}) => {
-    // console.log(data.correctAnswer);
-    // const correctAns = data.correctAnswer;
     let s = data.question;
     let htmlObject = document.createElement('div');
     htmlObject.innerHTML = s;
     let options = data.options;
     const callBackselectOpt = (id) => {
-        // catch current quize index
-        // console.log("index mcq : ",idx);
-        // console.log("selected mcq : ",id);
         if(options[id] === data.correctAnswer){
             // console.log("correct answer : ",options[id], data.correctAnswer);
             toastMsg("success");
@@ -88,7 +83,7 @@ const showAnswer = () => {
     return (
         <div className='quize-wrapper mt-3 mb-5'>
         <div className='d-flex justify-content-between'>
-            <h4 style={{"width":"90%"}}>{idx + 1}. { htmlObject.outerText }</h4>
+            <h4 className='ques' style={{"width":"90%"}}>{idx + 1}. { htmlObject.outerText }</h4>
             <EyeIcon onClick={()=> showAnswer()} className='text-dark me-3' style={{"width":"1.5rem","cursor":"pointer"}}></EyeIcon>
         </div>
         <div className='row'>
@@ -107,7 +102,7 @@ const Data = ({data,index,callBackselectOpt}) => {
         <div className='col-6 mt-1'>
             <div className='each-option d-flex align-items-center'>
                 <div><input onClick={()=> callBackselectOpt(index)}  name="option" id="" type="radio" /></div>
-                <label for="" className='lead ms-3'>{data}</label>
+                <label for="" className='label lead ms-3'>{data}</label>
             </div>
         </div>
     );
