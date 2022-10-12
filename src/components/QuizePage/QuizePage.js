@@ -89,7 +89,7 @@ const showAnswer = () => {
         <div className='quize-wrapper mt-3 mb-5'>
         <div className='d-flex justify-content-between'>
             <h4 style={{"width":"90%"}}>{idx + 1}. { htmlObject.outerText }</h4>
-            <EyeIcon onClick={()=> showAnswer()} className='text-dark me-3' style={{"width":"2.2rem","cursor":"pointer"}}></EyeIcon>
+            <EyeIcon onClick={()=> showAnswer()} className='text-dark me-3' style={{"width":"1.5rem","cursor":"pointer"}}></EyeIcon>
         </div>
         <div className='row'>
             {
